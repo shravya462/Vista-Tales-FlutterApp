@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:project/Bottom_Navigation/bottom_navigation_bar.dart';
 import 'package:project/res/images.dart';
 import 'package:project/res/appcolors.dart';
 
@@ -17,12 +18,12 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(Duration(seconds: 2), () {
-      // Navigator.pushReplacement(
-      //   context,
-      //   MaterialPageRoute(
-      //     builder: (context) => LoginScreen(),
-      //   ),
-      // );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => BottomNavigationScreen(),
+        ),
+      );
     });
   }
 
