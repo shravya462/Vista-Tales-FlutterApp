@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:project/network/model/blog_list_model.dart';
 import 'package:project/res/appcolors.dart';
 import 'package:project/splash_Screen.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(BlogListModelAdapter());
   runApp(const MyApp());
 }
 
