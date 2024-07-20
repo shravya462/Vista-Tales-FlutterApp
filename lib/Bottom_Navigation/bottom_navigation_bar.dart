@@ -15,7 +15,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
   final _page = [
     const HomeScreen(),
-    const BlogUploadScreen(),
+    NewBlogScreen(),
     const ProfileScreen(),
   ];
   @override
