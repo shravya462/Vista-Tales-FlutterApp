@@ -19,8 +19,8 @@ class BlogListModelAdapter extends TypeAdapter<BlogListModel> {
     return BlogListModel(
       fields[0] as String,
       fields[1] as String,
-      fields[2] as bool,
-      fields[3] as bool,
+      fields[2] as String,
+      fields[3] as String,
     );
   }
 
@@ -33,7 +33,7 @@ class BlogListModelAdapter extends TypeAdapter<BlogListModel> {
       ..writeByte(1)
       ..write(obj.place)
       ..writeByte(2)
-      ..write(obj.period)
+      ..write(obj.imagePath)
       ..writeByte(3)
       ..write(obj.description);
   }

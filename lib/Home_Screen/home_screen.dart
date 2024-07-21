@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:project/Home_Screen/component/blog_card.dart';
 import 'package:project/components/text_widget.dart';
+import 'package:project/providers/blog_provider.dart';
+
+import 'dart:io';
+
 import 'package:project/res/appcolors.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
+class HomeScreen extends ConsumerWidget {
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final blogs = ref.watch(blogProvider);
 
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 59,
@@ -30,13 +30,19 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [],
       ),
-      body: ListView.builder(itemBuilder: (context, index) {
-        return BlogCard(
-          cityName: 'City',
-          placeName: 'Place',
-          period: '5 Days ago',
-        );
-      }),
+      body: blogs.isEmpty
+          ? Center(child: Text('No blogs available'))
+          : ListView.builder(
+              itemCount: blogs.length,
+              itemBuilder: (context, index) {
+                final blog = blogs[index];
+                print("blog.imagePath :${blog.imagePath}");
+                return BlogCard(
+                  cityName: blog.city,
+                  placeName: blog.place,
+                  imgpath: blog.imagePath,
+                );
+              }),
     );
   }
 }

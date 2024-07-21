@@ -8,9 +8,9 @@ class BlogListModel {
   @HiveField(1)
   final String place;
   @HiveField(2)
-  final bool period;
+  final String imagePath;
   @HiveField(3)
-  final bool description;
+  final String description;
 
-  const BlogListModel(this.city, this.place, this.period, this.description);
+  const BlogListModel(this.city, this.place, this.imagePath, this.description);
 }
